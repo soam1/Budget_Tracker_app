@@ -17,15 +17,17 @@ class ResponsiveHandler extends HookConsumerWidget {
       return LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 600) {
           return ExpenseViewWeb();
-        } else
+        } else {
           return ExpenseViewMobile();
+        }
       });
     } else {
       return LayoutBuilder(builder: (context, constraints) {
         if (constraints.maxWidth > 600) {
           return LoginViewWeb();
-        } else
+        } else {
           return LoginViewMobile();
+        }
       });
     }
   }

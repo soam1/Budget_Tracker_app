@@ -11,20 +11,20 @@ void main() async {
   if (kIsWeb) {
     setPathUrlStrategy();
     await Firebase.initializeApp(
-      options: FirebaseOptions(
-          apiKey: "AIzaSyDTqxkfEwFAAqDzmRlMJ6BT-YVDdnsu6yw",
-          authDomain: "budget-app-3eb54.firebaseapp.com",
-          projectId: "budget-app-3eb54",
-          storageBucket: "budget-app-3eb54.appspot.com",
-          messagingSenderId: "582942096598",
-          appId: "1:582942096598:web:fe5d329e7037106a821d77",
-          measurementId: "G-Q2LS71J1N6"),
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyAC-VByUiKYfMH2rKooIBJutu26RKYcoXU",
+          authDomain: "budget-app-93518.firebaseapp.com",
+          projectId: "budget-app-93518",
+          storageBucket: "budget-app-93518.appspot.com",
+          messagingSenderId: "87787815661",
+          appId: "1:87787815661:web:a31787e2bc753468a182e4",
+          measurementId: "G-5BWJ5ST8X0"),
     );
   } else {
     await Firebase.initializeApp();
   }
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: MyApp(),
     ),
   );

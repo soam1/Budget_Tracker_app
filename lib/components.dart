@@ -7,6 +7,7 @@ class OpenSans extends StatelessWidget {
   final size;
   final color;
   final fontWeight;
+
   const OpenSans(
       {Key? key,
       required this.text,
@@ -33,6 +34,7 @@ class Poppins extends StatelessWidget {
   final size;
   final color;
   final fontWeight;
+
   const Poppins(
       {Key? key,
       required this.text,
@@ -117,7 +119,7 @@ class TextForm extends StatelessWidget {
   }
 }
 
-DialogBox(BuildContext context, String title) {
+DialogueBox(BuildContext context, String title) {
   return showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(

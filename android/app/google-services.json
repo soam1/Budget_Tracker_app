@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "87787815661",
+    "project_id": "budget-app-93518",
+    "storage_bucket": "budget-app-93518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87787815661:android:2ac70636ca392e44a182e4",
+        "android_client_info": {
+          "package_name": "com.akashsoam.budget_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87787815661-4o209oub20prum9q00i1qdal7ckc3s2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7KWJuvU2sgO1kxTeeXTDgQ8g4EznLQb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87787815661-4o209oub20prum9q00i1qdal7ckc3s2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
