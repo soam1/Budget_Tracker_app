@@ -14,7 +14,12 @@ class ViewModel extends ChangeNotifier {
   bool isObscure = true;
   var logger = Logger();
 
-//  check if signed in
+  List expensesName = [];
+  List expensesAmount = [];
+  List incomesName = [];
+  List incomesAmount = [];
+
+  //  check if signed in
   Future<void> isLoggedIn() async {
     await _auth.authStateChanges().listen((User? user) {
       if (user == null) {

@@ -169,28 +169,26 @@ class LoginViewWeb extends HookConsumerWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 30.0,
-                      ),
-                      //sign in button
-                      SignInButton(
-                        btnText: "Google Sign in",
-                        buttonType: ButtonType.google,
-                        btnColor: Colors.black,
-                        btnTextColor: Colors.white,
-                        buttonSize: ButtonSize.medium,
-                        onPressed: () async {
-                          if (kIsWeb) {
-                            //app is being run on web
-                            await viewModelProvider
-                                .signInWithGoogleWeb(context);
-                          } else {
-                            await viewModelProvider
-                                .signInWithGoogleMobile(context);
-                          }
-                        },
-                      ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  //sign in button
+                  SignInButton(
+                    btnText: "Google Sign in",
+                    buttonType: ButtonType.google,
+                    btnColor: Colors.black,
+                    btnTextColor: Colors.white,
+                    buttonSize: ButtonSize.medium,
+                    onPressed: () async {
+                      if (kIsWeb) {
+                        //app is being run on web
+                        await viewModelProvider.signInWithGoogleWeb(context);
+                      } else {
+                        await viewModelProvider.signInWithGoogleMobile(context);
+                      }
+                    },
                   ),
                 ],
               ),
