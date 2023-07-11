@@ -13,6 +13,12 @@ class ExpenseViewMobile extends HookConsumerWidget {
     final viewModelProvider = ref.watch(viewModel);
     double deviceWidth = MediaQuery.of(context).size.width;
 
+    if (isLoading) {
+      viewModelProvider.expensesStream();
+      viewModelProvider.incomesStream();
+      isLoading = false;
+    }
+
     int totalExpense = 0;
     int totalIncome = 0;
 
@@ -122,7 +128,7 @@ class ExpenseViewMobile extends HookConsumerWidget {
           actions: [
             IconButton(
               onPressed: () async {
-                ///TODO:implement reset all
+                await viewModelProvider.reset();
               },
               icon: Icon(Icons.refresh),
             ),
@@ -351,8 +357,7 @@ class ExpenseViewMobile extends HookConsumerWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Poppins(
-                                    text:
-                                        viewModelProvider.incomesAmount[index],
+                                    text: viewModelProvider.incomesName[index],
                                     size: 12.0),
                                 Align(
                                   alignment: Alignment.centerRight,

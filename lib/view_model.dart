@@ -260,4 +260,59 @@ class ViewModel extends ChangeNotifier {
       ),
     );
   }
+
+  void expensesStream() async {
+    await for (var snapshot in userCollection
+        .doc(_auth.currentUser!.uid)
+        .collection("expenses")
+        .snapshots()) {
+      expensesAmount = [];
+      expensesName = [];
+      for (var expense in snapshot.docs) {
+        expensesName.add(expense.data()['name']);
+        expensesAmount.add(expense.data()['amount']);
+        notifyListeners();
+      }
+    }
+  }
+
+  void incomesStream() async {
+    await for (var snapshot in userCollection
+        .doc(_auth.currentUser!.uid)
+        .collection("incomes")
+        .snapshots()) {
+      incomesAmount = [];
+      incomesName = [];
+      for (var income in snapshot.docs) {
+        incomesName.add(income.data()['name']);
+        incomesAmount.add(income.data()['amount']);
+        notifyListeners();
+      }
+    }
+  }
+
+  Future<void> reset() async {
+    await userCollection
+        .doc(_auth.currentUser!.uid)
+        .collection("expenses")
+        .get()
+        .then(
+      (snapshot) {
+        for (DocumentSnapshot ds in snapshot.docs) {
+          ds.reference.delete();
+        }
+      },
+    );
+    await userCollection
+        .doc(_auth.currentUser!.uid)
+        .collection("incomes")
+        .get()
+        .then(
+      (snapshot) {
+        for (DocumentSnapshot ds in snapshot.docs) {
+          ds.reference.delete();
+        }
+      },
+    );
+  }
 }
