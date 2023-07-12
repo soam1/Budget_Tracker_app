@@ -8,13 +8,16 @@ import 'package:logger/logger.dart';
 
 final viewModel =
     ChangeNotifierProvider.autoDispose<ViewModel>((ref) => ViewModel());
+final authStateProvider = StreamProvider<User?>((ref) {
+  return ref.read(viewModel).authStateChange;
+});
 
 class ViewModel extends ChangeNotifier {
   final _auth = FirebaseAuth.instance;
   CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
 
-  bool isSignedIn = false;
+  // bool isSignedIn = false;
   bool isObscure = true;
   var logger = Logger();
 
@@ -24,16 +27,18 @@ class ViewModel extends ChangeNotifier {
   List incomesAmount = [];
 
   //  check if signed in
-  Future<void> isLoggedIn() async {
-    await _auth.authStateChanges().listen((User? user) {
-      if (user == null) {
-        isSignedIn = false;
-      } else {
-        isSignedIn = true;
-      }
-    });
-    notifyListeners();
-  }
+  // Future<void> isLoggedIn() async {
+  //   await _auth.authStateChanges().listen((User? user) {
+  //     if (user == null) {
+  //       isSignedIn = false;
+  //     } else {
+  //       isSignedIn = true;
+  //     }
+  //   });
+  //   notifyListeners();
+  // }
+
+  Stream<User?> get authStateChange => _auth.authStateChanges();
 
   toggleObscure() {
     isObscure = !isObscure;
