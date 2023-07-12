@@ -17,8 +17,8 @@ void main() async {
           projectId: "budget-app-93518",
           storageBucket: "budget-app-93518.appspot.com",
           messagingSenderId: "87787815661",
-          appId: "1:87787815661:web:a31787e2bc753468a182e4",
-          measurementId: "G-5BWJ5ST8X0"),
+          appId: "1:87787815661:web:fc68f0f19adc6747a182e4",
+          measurementId: "G-V37M6JTNHD"),
     );
   } else {
     await Firebase.initializeApp();
